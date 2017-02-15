@@ -1,6 +1,13 @@
-<section>
-    <h1>Hey Chat!</h1>
-    <section ng-repeat="room in landing.rooms">
+<div class="side-bar">
+    <section class="side-bar-heading">
+        <h1 class="title">Hey Chat!</h1>
+        <button class="btn btn-primary" ng-click="landing.createRoomModal()">New Room</button>
+    </section>
+    <section class="room-list" ng-repeat="room in landing.rooms">
         <p>{{ room.$value }}</p>
     </section>
-</section>
+</div>
+
+<div class="content">
+
+</div>
