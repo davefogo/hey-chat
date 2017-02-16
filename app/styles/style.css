@@ -35,10 +35,6 @@ html {
     padding-left: 10px;
 }
 
-.modal {
-    display: block;
-}
-
 .modal-dialog {
     position: absolute;
     left: 70%;

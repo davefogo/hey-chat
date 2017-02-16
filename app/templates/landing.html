@@ -1,7 +1,7 @@
 <div class="side-bar">
-    <section class="side-bar-heading">
+    <section class="side-bar-heading"  ng-controller= "ModalCtrl as modal">
         <h1 class="title">Hey Chat!</h1>
-        <button class="btn btn-primary" ng-click="landing.createRoomModal()">New Room</button>
+        <button class="btn btn-primary" ng-click="modal.createRoomModal()">New Room</button>
     </section>
     <section class="room-list" ng-repeat="room in landing.rooms">
         <p>{{ room.$value }}</p>
