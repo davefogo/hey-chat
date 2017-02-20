@@ -1,5 +1,6 @@
-(function(){
+(function() {
   function Rooms($firebaseArray) {
+
     /*** PRIVATE ATTRIBUTES ***/
 
     /*

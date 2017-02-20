@@ -1,5 +1,5 @@
 (function() {
-  function LandingCtrl(Rooms, $scope, Messages) {
+  function LandingCtrl(Rooms, $rootScope, Messages) {
 
     /*** PUBLIC ATTRIBUTES ***/
 
@@ -10,7 +10,8 @@
 
     this.rooms = Rooms.all;
 
-    this.messages = Messages.all;
+    this.message = Messages;
+
 
     /*** PUBLIC FUNCTIONS ***/
 
@@ -21,7 +22,7 @@
      */
 
      this.setRoom = function(room) {
-        return $scope.currentRoom = room.$value;
+        return $rootScope.currentRoom = room;
      }
 
 
@@ -29,5 +30,5 @@
   }
   angular
     .module('heyChat')
-    .controller('LandingCtrl', ['Rooms', '$scope', 'Messages', LandingCtrl]);
+    .controller('LandingCtrl', ['Rooms', '$rootScope', 'Messages', LandingCtrl]);
 })();
