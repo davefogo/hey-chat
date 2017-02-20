@@ -1,7 +1,12 @@
 (function() {
   function ModalCtrl(Rooms, $uibModal, $rootScope) {
-    this.rooms = Rooms.all;
-    //function that pops up the modal
+
+      this.rooms = Rooms.all;
+
+    /*** PUBLIC FUNCTIONS ***/
+
+
+
     this.createRoomModal = function() {
         $rootScope.uibModalInstance = $uibModal.open({
         templateUrl: 'templates/modal.html',
@@ -10,6 +15,12 @@
         backdrop: true
       });
     };
+
+    /*
+     * @function addChatroom
+     * @desc adds a new chat room to the rooms array.
+     * @param string
+     */
 
     this.addChatroom = function() {
       this.rooms.$add({$value: document.getElementById('value').value})

@@ -2,6 +2,32 @@ html {
     font-family: sans-serif;
 }
 
+.content {
+    position: fixed;
+    left: 35%;
+}
+
+.content-title {
+    position: fixed;
+    left: 35%;
+    margin-top: 2%;
+    font-size: 2em;
+}
+
+.content-list {
+    margin-top: 100px;
+}
+
+.message {
+    font-size: .8em;
+    margin-top: 50px;
+    padding: 0;
+}
+
+.username {
+    font-weight: bold;
+}
+
 .side-bar {
     position: fixed;
     top: 0;
