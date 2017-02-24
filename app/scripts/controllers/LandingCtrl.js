@@ -12,6 +12,7 @@
 
     this.message = Messages;
 
+    this.messages = Messages.all;
 
     /*** PUBLIC FUNCTIONS ***/
 

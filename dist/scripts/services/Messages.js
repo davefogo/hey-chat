@@ -3,25 +3,29 @@
 
     /*** PRIVATE ATTRIBUTES ***/
 
+
+
     /*
      * @desc Reference/Query Firebase database
      * @type {Object}
      */
-    var ref = firebase.database().ref().child("messages");
+     //
+    //  var messages = $firebaseArray(ref);
 
     /*
-     * @desc Returns ref data to array
+     * @desc Returns ref data as array
      * @type {Object}
      */
-    var messages = $firebaseArray(ref);
 
     return {
-      // all: messages
       getByRoomId: function(room) {
-        ref.orderByChild("roomId").equalTo(room.$id);
+        var ref = firebase.database().ref().child("messages").orderByChild("roomId").equalTo(room);
+        console.log(ref);
+        var messages = $firebaseArray(ref);
+        console.log(messages);
+        return messages;
       }
     }
-
 
   };
 
