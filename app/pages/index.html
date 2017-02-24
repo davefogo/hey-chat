@@ -4,19 +4,17 @@
 <head lang="en">
     <title>Hey Chat!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
 </head>
 <body>
 
     <ui-view></ui-view>
 
-    <!-- Angular -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-    <!-- Angular Router -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
-    <!-- AngularFire -->
     <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
-    <!-- Initialize Firebase -->
     <script src="https://www.gstatic.com/firebasejs/3.6.7/firebase.js"></script>
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.3.0.min.js"></script>
     <script>
       var config = {
         apiKey: "AIzaSyC1tHFJieAAObNN5T2e78jij-wi6BT2avg",
@@ -29,6 +27,8 @@
     </script>
     <script src="/scripts/app.js"></script>
     <script src="/scripts/services/Rooms.js"></script>
+    <script src="/scripts/services/Messages.js"></script>
     <script src="/scripts/controllers/LandingCtrl.js"></script>
+    <script src="/scripts/controllers/ModalCtrl.js"></script>
 </body>
 </html>

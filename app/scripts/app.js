@@ -14,7 +14,7 @@
     }
 
     angular
-      .module('heyChat', ['ui.router', 'firebase'])
+      .module('heyChat', ['ui.router', 'firebase', 'ui.bootstrap'])
       .config(config);
 
 })();
