@@ -3,7 +3,9 @@
 
     /*** PRIVATE ATTRIBUTES ***/
 
+    var ref = firebase.database().ref().child("messages").orderByChild("roomId");
 
+    var messages = $firebaseArray(ref);
 
     /*
      * @desc Reference/Query Firebase database
@@ -18,13 +20,14 @@
      */
 
     return {
-      getByRoomId: function(room) {
-        var ref = firebase.database().ref().child("messages").orderByChild("roomId").equalTo(room);
-        console.log(ref);
-        var messages = $firebaseArray(ref);
-        console.log(messages);
-        return messages;
-      }
+      all : messages
+      // getByRoomId: function(room) {
+      //   // var ref = firebase.database().ref().child("messages").orderByChild("roomId").equalTo(room);
+      //   // console.log(ref);
+      //   // var messages = $firebaseArray(ref);
+      //   // console.log(messages);
+      //   // return messages;
+      // }
     }
 
   };
