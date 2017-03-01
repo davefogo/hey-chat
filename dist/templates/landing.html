@@ -13,11 +13,15 @@
         {{ currentRoom.$value }}
     </section>
     <section  class="content-list">
-        <section class="message" ng-repeat="message in landing.messages">
+        <section class="message" ng-repeat="message in landing.messageList">
             <p class="username">{{message.username}}</p>
             <p>{{message.content}}</p>
             <p>{{message.sentAt}}</p>
             <p>{{message.roomId}}</p>
         </section>
+    </section>
+    <section class="content-message-bar">
+        <input id="content-message-bar-description" type="text"></input>
+        <button class="btn btn-primary" id="message-bar-button" ng-click="landing.sendMessage()">Send</button>
     </section>
 </div>

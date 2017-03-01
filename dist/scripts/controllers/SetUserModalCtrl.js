@@ -1,10 +1,10 @@
 (function() {
   function SetUserModalCtrl($rootScope) {
     this.setUsername = function() {
-      var heyChatCurrentUser = document.getElementById('heyChatCurrentUser').value;
-      if (heyChatCurrentUser && heyChatCurrentUser.trim() !== '') {
+      $rootScope.heyChatCurrentUser = document.getElementById('heyChatCurrentUser').value;
+      if ($rootScope.heyChatCurrentUser && $rootScope.heyChatCurrentUser.trim() !== '') {
         $rootScope.uibModalInstanceB.close('cancel');
-        console.log(heyChatCurrentUser);
+        return $rootScope.heyChatCurrentUser;
       }
     }
   }

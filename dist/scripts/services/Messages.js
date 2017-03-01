@@ -1,38 +1,35 @@
 (function() {
-  function Messages($firebaseArray) {
+  function Messages($firebaseArray, $rootScope) {
+    var d = new Date;
 
-    /*** PRIVATE ATTRIBUTES ***/
+    var setTime = function(date) {
+      var hours = date.getHours();
+      var minutes = date.getMinutes();
 
-    var ref = firebase.database().ref().child("messages").orderByChild("roomId");
-
-    var messages = $firebaseArray(ref);
-
-    /*
-     * @desc Reference/Query Firebase database
-     * @type {Object}
-     */
-     //
-    //  var messages = $firebaseArray(ref);
-
-    /*
-     * @desc Returns ref data as array
-     * @type {Object}
-     */
-
-    return {
-      all : messages
-      // getByRoomId: function(room) {
-      //   // var ref = firebase.database().ref().child("messages").orderByChild("roomId").equalTo(room);
-      //   // console.log(ref);
-      //   // var messages = $firebaseArray(ref);
-      //   // console.log(messages);
-      //   // return messages;
-      // }
+      if (minutes.length < 2) {
+        return time = hours + ":0" + minutes;
+      } else {
+        return time = hours + ":" + minutes;
+      }
     }
 
-  };
+    return {
+      getByRoomId: function(room) {
+        if (room) {
+          var ref = firebase.database().ref().child("messages").orderByChild("roomId").equalTo(room.$id);
+          console.log($rootScope.roomMessages);
+          return $rootScope.roomMessages = $firebaseArray(ref);
+        }
+      },
+      send: function() {
+        $rootScope.roomMessages.$add({content: document.getElementById('content-message-bar-description').value, roomId: $rootScope.currentRoom.$id, username: $rootScope.heyChatCurrentUser, sentAt: setTime(d)});
+      }
+    };
+  }
+
+
 
   angular
     .module('heyChat')
-    .factory('Messages', ['$firebaseArray', Messages]);
+    .factory('Messages', ['$firebaseArray', '$rootScope', Messages]);
 })()

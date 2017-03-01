@@ -1,6 +1,8 @@
 (function() {
   function LandingCtrl(Rooms, $rootScope, Messages) {
+    this.rooms = Rooms.all
 
+    this.message = Messages
     /*** PUBLIC ATTRIBUTES ***/
 
     /*
@@ -8,11 +10,7 @@
      * @type [array]
      */
 
-    this.rooms = Rooms.all;
-
-    this.message = Messages;
-
-    this.messages = Messages.all;
+     this.messageList = $rootScope.roomMessage;
 
     /*** PUBLIC FUNCTIONS ***/
 
@@ -26,7 +24,9 @@
         return $rootScope.currentRoom = room;
      }
 
-
+     this.sendMessage = function() {
+        Messages.send(Messages.textValue);
+     }
 
   }
   angular

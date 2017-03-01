@@ -18,7 +18,29 @@ html {
     margin-top: 100px;
 }
 
+.content-message-bar {
+    position: fixed;
+    bottom: 10px;
+    width: 75%;
+    height: 5%;
+    background-color: rgb(218, 225, 237);
+    margin: 0;
+    border-radius: 6px;
+    font-size: 0.8em;
+    font-weight: lighter;
+}
+
+#content-message-bar-description {
+    height: 80%;
+    length: 100%;
+}
+
+#message-bar-button {
+    height: 100%;
+    margin: 0;
+}
 .message {
+    bottom 15px;
     font-size: .8em;
     margin-top: 50px;
     padding: 0;
