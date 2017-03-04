@@ -1,7 +1,5 @@
 (function() {
   function Messages($firebaseArray, $rootScope) {
-    var d = new Date;
-
     var setTime = function(date) {
       var hours = date.getHours();
       var minutes = date.getMinutes();
@@ -17,12 +15,17 @@
       getByRoomId: function(room) {
         if (room) {
           var ref = firebase.database().ref().child("messages").orderByChild("roomId").equalTo(room.$id);
-          console.log($rootScope.roomMessages);
-          return $rootScope.roomMessages = $firebaseArray(ref);
+          var messages = $firebaseArray(ref);
+          return messages;
+          // return $rootScope.roomMessages = $firebaseArray(ref);
         }
       },
-      send: function() {
-        $rootScope.roomMessages.$add({content: document.getElementById('content-message-bar-description').value, roomId: $rootScope.currentRoom.$id, username: $rootScope.heyChatCurrentUser, sentAt: setTime(d)});
+      createMessage: function() {
+        var d = new Date;
+        var ref = firebase.database().ref().child("messages");
+        var messages = $firebaseArray(ref);
+        messages.$add({content: document.getElementById('content-message-bar-description').value, roomId: $rootScope.currentRoom.$id, username: $rootScope.heyChatCurrentUser, sentAt: setTime(d)});
+        // .$add(function(()))
       }
     };
   }

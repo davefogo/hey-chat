@@ -4,40 +4,47 @@ html {
 
 .content {
     position: fixed;
-    left: 35%;
+    top: 0;
+    left: 30%;
+    width: 75%;
+    height: 100%;
+    overflow-y: auto;
 }
 
 .content-title {
     position: fixed;
-    left: 35%;
+    left: 85%;
     margin-top: 2%;
     font-size: 2em;
 }
 
 .content-list {
     margin-top: 100px;
+    margin-left: 20px;
+    padding-bottom: 35px;
 }
 
 .content-message-bar {
     position: fixed;
-    bottom: 10px;
+    left: 30%;
+    bottom: 5px;
     width: 75%;
     height: 5%;
-    background-color: rgb(218, 225, 237);
     margin: 0;
-    border-radius: 6px;
-    font-size: 0.8em;
-    font-weight: lighter;
 }
 
 #content-message-bar-description {
-    height: 80%;
-    length: 100%;
+    position: absolute;
+    height: 100%;
+    width: 85%;
 }
 
 #message-bar-button {
-    height: 100%;
-    margin: 0;
+    postion: absolute;
+    left: 50%;
+    height: 40px;
+    width: 7%;
+    margin-left: 86%;
 }
 .message {
     bottom 15px;
@@ -92,6 +99,7 @@ html {
     margin-left: -180px;
     background-color: rgb(218, 225, 237);
     border-radius: 6px;
+    z-index: 99;
 }
 
 .modal-heading {

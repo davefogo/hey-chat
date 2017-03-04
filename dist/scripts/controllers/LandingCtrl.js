@@ -1,6 +1,9 @@
 (function() {
-  function LandingCtrl(Rooms, $rootScope, Messages) {
+  function LandingCtrl(Rooms, $rootScope, $scope, Messages) {
+
     this.rooms = Rooms.all
+
+    $scope.messageText = document.getElementById('content-message-bar-description').value;
 
     this.message = Messages
     /*** PUBLIC ATTRIBUTES ***/
@@ -9,8 +12,6 @@
      * @desc Reference to Rooms service
      * @type [array]
      */
-
-     this.messageList = $rootScope.roomMessage;
 
     /*** PUBLIC FUNCTIONS ***/
 
@@ -21,15 +22,16 @@
      */
 
      this.setRoom = function(room) {
-        return $rootScope.currentRoom = room;
+       $rootScope.currentRoom = room;
+       this.messages = Messages.getByRoomId(room);
      }
 
      this.sendMessage = function() {
-        Messages.send(Messages.textValue);
+        Messages.createMessage();
      }
 
   }
   angular
     .module('heyChat')
-    .controller('LandingCtrl', ['Rooms', '$rootScope', 'Messages', LandingCtrl]);
+    .controller('LandingCtrl', ['Rooms', '$rootScope', '$scope', 'Messages', LandingCtrl]);
 })();
