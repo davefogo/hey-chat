@@ -1,5 +1,6 @@
 (function() {
   function Messages($firebaseArray, $rootScope) {
+
     var setTime = function(date) {
       var hours = date.getHours();
       var minutes = date.getMinutes();
@@ -17,20 +18,16 @@
           var ref = firebase.database().ref().child("messages").orderByChild("roomId").equalTo(room.$id);
           var messages = $firebaseArray(ref);
           return messages;
-          // return $rootScope.roomMessages = $firebaseArray(ref);
         }
       },
-      createMessage: function() {
+      createMessage: function(content, roomId, username) {
         var d = new Date;
         var ref = firebase.database().ref().child("messages");
         var messages = $firebaseArray(ref);
-        messages.$add({content: document.getElementById('content-message-bar-description').value, roomId: $rootScope.currentRoom.$id, username: $rootScope.heyChatCurrentUser, sentAt: setTime(d)});
-        // .$add(function(()))
+        messages.$add({content: content, roomId: roomId, username: username, sentAt: setTime(d)});
       }
     };
   }
-
-
 
   angular
     .module('heyChat')
