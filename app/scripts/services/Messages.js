@@ -3,12 +3,11 @@
 
     var setTime = function(date) {
       var hours = date.getHours();
-      var minutes = date.getMinutes();
-
-      if (minutes.length < 2) {
-        return time = hours + ":0" + minutes;
+      var minutes = date.getMinutes() - 12;
+      if (minutes.toString().length === 1) {
+        return hours + ":0" + minutes;
       } else {
-        return time = hours + ":" + minutes;
+        return hours + ":" + minutes;
       }
     }
 

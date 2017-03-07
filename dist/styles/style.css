@@ -24,6 +24,10 @@ html {
     padding-bottom: 35px;
 }
 
+#new-room {
+    margin-top: 8px;
+}
+
 .content-message-bar {
     position: fixed;
     left: 30%;
@@ -35,16 +39,17 @@ html {
 
 #content-message-bar-description {
     position: absolute;
-    height: 100%;
+    height: 96%;
     width: 85%;
 }
 
 #message-bar-button {
     postion: absolute;
     left: 50%;
-    height: 40px;
+    height: 50px;
     width: 7%;
     margin-left: 86%;
+    margin-top: 2px;
 }
 .message {
     bottom 15px;
@@ -104,13 +109,13 @@ html {
 
 .modal-heading {
     position: relative;
-    left: 20px;
+    left: 5px;
 }
 
 .modal-subheading {
     position: relative;
     font-size: 0.6em;
-    left: 20px;
+    left: 5px;
 }
 
 #value {

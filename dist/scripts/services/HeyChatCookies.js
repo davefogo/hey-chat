@@ -1,7 +1,7 @@
 (function() {
   function HeyChatCookies($cookies, $uibModal, $rootScope) {
-    var currentUser = $cookies.get('heyChatCurrentUser');
-    if (!currentUser || currentUser === '') {
+    var currentUser = $cookies.get('name');
+    if (!currentUser || currentUser.trim() === '') {
       $rootScope.uibModalInstanceB = $uibModal.open({
         templateUrl: 'templates/set-user-modal.html',
         controller: 'SetUserModalCtrl',
@@ -12,5 +12,5 @@
 
   angular
     .module('heyChat')
-    .run(['$cookies', '$uibModal', '$rootScope', HeyChatCookies]);
+    .run(['$cookies', '$uibModal', '$rootScope',  HeyChatCookies]);
 })();

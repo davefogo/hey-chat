@@ -1,5 +1,5 @@
 (function() {
-  function LandingCtrl(Rooms, $rootScope, $scope, Messages) {
+  function LandingCtrl(Rooms, $rootScope, $scope, Messages, $cookies) {
 
     this.rooms = Rooms.all
 
@@ -11,13 +11,14 @@
     }
 
     this.sendMessage = function() {
-      content = document.getElementById('content-message-bar-description').value
+      content = $scope.messageText;
       roomId = $rootScope.currentRoom.$id;
-      username = $rootScope.heyChatCurrentUser;
+      username = $cookies.get('name');
       Messages.createMessage(content, roomId, username);
+      $scope.messageText = null;
     }
   }
   angular
     .module('heyChat')
-    .controller('LandingCtrl', ['Rooms', '$rootScope', '$scope', 'Messages', LandingCtrl]);
+    .controller('LandingCtrl', ['Rooms', '$rootScope', '$scope', 'Messages', '$cookies', LandingCtrl]);
 })();
