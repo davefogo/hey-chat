@@ -1,14 +1,14 @@
 (function() {
-  function SetUserModalCtrl($rootScope) {
+  function SetUserModalCtrl($rootScope, $scope, $cookies) {
     this.setUsername = function() {
-      var heyChatCurrentUser = document.getElementById('heyChatCurrentUser').value;
-      if (heyChatCurrentUser && heyChatCurrentUser.trim() !== '') {
+      $cookies.put('name', $scope.name);
+      var username = $cookies.get('name');
+      if (typeof(username) !== "undefined" && username.trim() !== '') {
         $rootScope.uibModalInstanceB.close('cancel');
-        console.log(heyChatCurrentUser);
       }
     }
   }
   angular
     .module('heyChat')
-    .controller('SetUserModalCtrl', ['$rootScope', SetUserModalCtrl])
+    .controller('SetUserModalCtrl', ['$rootScope', '$scope', '$cookies', SetUserModalCtrl])
 })();

@@ -1,35 +1,24 @@
 (function() {
-  function LandingCtrl(Rooms, $rootScope, Messages) {
+  function LandingCtrl(Rooms, $rootScope, $scope, Messages, $cookies) {
 
-    /*** PUBLIC ATTRIBUTES ***/
+    this.rooms = Rooms.all
 
-    /*
-     * @desc Reference to Rooms service
-     * @type [array]
-     */
+    this.message = Messages
 
-    this.rooms = Rooms.all;
+    this.setRoom = function(room) {
+     $rootScope.currentRoom = room;
+     this.messages = Messages.getByRoomId(room);
+    }
 
-    this.message = Messages;
-
-    this.messages = Messages.all;
-
-    /*** PUBLIC FUNCTIONS ***/
-
-    /*
-     * @function setRoom
-     * @desc sets the newly selected room.
-     * @param string
-     */
-
-     this.setRoom = function(room) {
-        return $rootScope.currentRoom = room;
-     }
-
-
-
+    this.sendMessage = function() {
+      content = $scope.messageText;
+      roomId = $rootScope.currentRoom.$id;
+      username = $cookies.get('name');
+      Messages.createMessage(content, roomId, username);
+      $scope.messageText = null;
+    }
   }
   angular
     .module('heyChat')
-    .controller('LandingCtrl', ['Rooms', '$rootScope', 'Messages', LandingCtrl]);
+    .controller('LandingCtrl', ['Rooms', '$rootScope', '$scope', 'Messages', '$cookies', LandingCtrl]);
 })();

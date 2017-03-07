@@ -10,7 +10,7 @@
     var ref = firebase.database().ref().child("rooms");
 
     /*
-     * @desc Returns ref data to array
+     * @desc Returns ref data to array 
      * @type [array]
      */
     var rooms = $firebaseArray(ref);
