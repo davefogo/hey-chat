@@ -3,7 +3,7 @@
 
     var setTime = function(date) {
       var hours = date.getHours();
-      var minutes = date.getMinutes() - 12;
+      var minutes = date.getMinutes();
       if (minutes.toString().length === 1) {
         return hours + ":0" + minutes;
       } else {
@@ -30,5 +30,5 @@
 
   angular
     .module('heyChat')
-    .factory('Messages', ['$firebaseArray', '$rootScope', Messages]);
+    .factory('Messages', ['$firebaseArray', Messages]);
 })()
